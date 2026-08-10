@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Two Wild to Handle — 2nd Birthday</title>
+  <meta name="description" content="Join us for a wild celebration — Sunday, August 16th at 6:00 PM." />
+  <meta property="og:title" content="Two Wild to Handle — 2nd Birthday" />
+  <meta property="og:description" content="Sunday, August 16th · 6:00 PM · New Hudson, MI" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --sand: #f3e6c8;
+      --sand-deep: #e6d3a8;
+      --leaf: #2f6b3a;
+      --leaf-bright: #6fb84a;
+      --canopy: #1e4d2b;
+      --wood: #8b5a2b;
+      --wood-dark: #5c3a18;
+      --ink: #243028;
+      --cream: #fff8e8;
+      --sky: #cfe8d4;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Nunito", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 120% 80% at 50% -10%, #d9efc8 0%, transparent 55%),
+        linear-gradient(180deg, #e8f2d8 0%, var(--sand) 28%, var(--sand-deep) 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .frame {
+      position: relative;
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 1.25rem 1.1rem 2.5rem;
+      min-height: 100vh;
+    }
+
+    /* Soft foliage vignette */
+    .frame::before,
+    .frame::after {
+      content: "";
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      width: min(42vw, 220px);
+      height: 100vh;
+      top: 0;
+      opacity: 0.55;
+      background-repeat: no-repeat;
+    }
+    .frame::before {
+      left: 0;
+      background-image:
+        radial-gradient(circle at 0% 12%, #2f6b3a 0 28%, transparent 29%),
+        radial-gradient(circle at 8% 28%, #1e4d2b 0 22%, transparent 23%),
+        radial-gradient(circle at 0% 48%, #3f8a48 0 26%, transparent 27%),
+        radial-gradient(circle at 10% 72%, #2f6b3a 0 24%, transparent 25%),
+        radial-gradient(circle at 0% 92%, #1e4d2b 0 20%, transparent 21%);
+    }
+    .frame::after {
+      right: 0;
+      background-image:
+        radial-gradient(circle at 100% 8%, #1e4d2b 0 26%, transparent 27%),
+        radial-gradient(circle at 92% 32%, #3f8a48 0 22%, transparent 23%),
+        radial-gradient(circle at 100% 58%, #2f6b3a 0 28%, transparent 29%),
+        radial-gradient(circle at 90% 82%, #1e4d2b 0 22%, transparent 23%);
+    }
+
+    .invite {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .bunting {
+      display: flex;
+      justify-content: center;
+      gap: 0.35rem;
+      margin-bottom: 0.75rem;
+      animation: drop-in 0.8s ease both;
+    }
+    .bunting span {
+      width: 1.55rem;
+      height: 1.9rem;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      display: block;
+      transform-origin: top center;
+      animation: flutter 3.2s ease-in-out infinite;
+    }
+    .bunting span:nth-child(1) { background: #6fb84a; animation-delay: 0s; }
+    .bunting span:nth-child(2) { background: #2f6b3a; animation-delay: 0.15s; }
+    .bunting span:nth-child(3) { background: #f0c94d; animation-delay: 0.3s; }
+    .bunting span:nth-child(4) { background: #8b5a2b; animation-delay: 0.45s; }
+    .bunting span:nth-child(5) { background: #6fb84a; animation-delay: 0.6s; }
+    .bunting span:nth-child(6) { background: #2f6b3a; animation-delay: 0.75s; }
+    .bunting span:nth-child(7) { background: #f0c94d; animation-delay: 0.9s; }
+
+    .brand {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2.6rem, 11vw, 3.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--canopy);
+      animation: rise 0.9s 0.15s ease both;
+    }
+    .brand .wild {
+      display: block;
+      font-family: "Baloo 2", cursive;
+      font-weight: 800;
+      font-size: 1.15em;
+      color: var(--leaf-bright);
+      text-shadow: 0 2px 0 rgba(30, 77, 43, 0.15);
+      animation: bob 3.5s ease-in-out infinite;
+    }
+    .brand .plank {
+      display: inline-block;
+      margin-top: 0.35rem;
+      padding: 0.28rem 0.9rem 0.35rem;
+      background: linear-gradient(180deg, #a86d35, var(--wood) 45%, var(--wood-dark));
+      color: var(--cream);
+      font-family: "Baloo 2", cursive;
+      font-size: 0.42em;
+      letter-spacing: 0.04em;
+      border-radius: 0.35rem;
+      box-shadow: 0 3px 0 var(--wood-dark), 0 8px 18px rgba(92, 58, 24, 0.2);
+      transform: rotate(-1.5deg);
+    }
+
+    .lede {
+      margin: 1rem auto 0;
+      max-width: 22rem;
+      font-size: 1.05rem;
+      line-height: 1.45;
+      color: #3a4a3e;
+      animation: rise 0.9s 0.3s ease both;
+    }
+
+    .scene {
+      position: relative;
+      height: 12.5rem;
+      margin: 1.1rem 0 0.4rem;
+      animation: rise 1s 0.4s ease both;
+    }
+    .scene svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+    .float-a { animation: floaty 4s ease-in-out infinite; }
+    .float-b { animation: floaty 4.8s 0.4s ease-in-out infinite; }
+    .swing { transform-origin: 300px 20px; animation: swing 3.4s ease-in-out infinite; }
+
+    .details {
+      margin: 0.5rem auto 1.35rem;
+      padding: 1rem 1.1rem;
+      max-width: 22rem;
+      text-align: left;
+      background: rgba(255, 248, 232, 0.72);
+      border: 2px dashed rgba(47, 107, 58, 0.35);
+      border-radius: 1.1rem;
+      backdrop-filter: blur(4px);
+      animation: rise 0.9s 0.5s ease both;
+    }
+    .details li {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1.6rem 1fr;
+      gap: 0.65rem;
+      align-items: start;
+      padding: 0.45rem 0;
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+    .details li + li { border-top: 1px solid rgba(47, 107, 58, 0.12); }
+    .details .ico { font-size: 1.05rem; line-height: 1.35; }
+    .details a {
+      color: var(--leaf);
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 2px;
+    }
+    .details a:hover { color: var(--canopy); }
+
+    .rsvp {
+      animation: rise 0.9s 0.65s ease both;
+    }
+    .rsvp h2 {
+      font-family: "Baloo 2", cursive;
+      font-size: 1.55rem;
+      color: var(--wood-dark);
+      margin-bottom: 0.35rem;
+    }
+    .rsvp p {
+      font-size: 0.95rem;
+      color: #4a5a4e;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      min-width: 12.5rem;
+      padding: 0.95rem 1.6rem;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #3f8a48, var(--leaf) 55%, var(--canopy));
+      color: #fff;
+      font-family: "Baloo 2", cursive;
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow:
+        0 4px 0 #163820,
+        0 12px 24px rgba(30, 77, 43, 0.28);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 6px 0 #163820,
+        0 16px 28px rgba(30, 77, 43, 0.32);
+    }
+    .cta:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #163820, 0 8px 16px rgba(30, 77, 43, 0.22);
+      animation: none;
+    }
+
+    .qr-block {
+      margin-top: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .qr-block img {
+      width: 132px;
+      height: 132px;
+      padding: 0.45rem;
+      background: var(--cream);
+      border: 3px solid rgba(111, 184, 74, 0.55);
+      border-radius: 0.85rem;
+    }
+    .qr-block span {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--canopy);
+      letter-spacing: 0.02em;
+    }
+
+    .foot {
+      margin-top: 1.75rem;
+      font-size: 0.8rem;
+      color: #6a7a6e;
+    }
+
+    @keyframes flutter {
+      0%, 100% { transform: rotate(-6deg); }
+      50% { transform: rotate(7deg); }
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+    @keyframes swing {
+      0%, 100% { transform: rotate(-4deg); }
+      50% { transform: rotate(5deg); }
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes drop-in {
+      from { opacity: 0; transform: translateY(-12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 4px 0 #163820, 0 12px 24px rgba(30, 77, 43, 0.28); }
+      50% { box-shadow: 0 4px 0 #163820, 0 12px 28px rgba(30, 77, 43, 0.42), 0 0 0 8px rgba(111, 184, 74, 0.12); }
+    }
+
+    @media (min-width: 520px) {
+      .frame { padding-top: 2rem; }
+      .frame::before, .frame::after { opacity: 0.7; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="frame">
+    <article class="invite">
+      <div class="bunting" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <h1 class="brand">
+        Two
+        <span class="wild">Wild</span>
+        <span class="plank">to Handle</span>
+      </h1>
+
+      <p class="lede">
+        Join us for a wild celebration as we party for our little explorer’s 2nd birthday!
+      </p>
+
+      <div class="scene" aria-hidden="true">
+        <svg viewBox="0 0 360 180" role="img">
+          <!-- vine + monkey -->
+          <g class="swing">
+            <path d="M300 8 C290 50 320 70 305 110" fill="none" stroke="#2f6b3a" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="300" cy="118" r="14" fill="#8B6914"/>
+            <circle cx="295" cy="114" r="2.2" fill="#243028"/>
+            <circle cx="306" cy="114" r="2.2" fill="#243028"/>
+            <ellipse cx="300" cy="122" rx="5" ry="3" fill="#5c3a18"/>
+            <ellipse cx="286" cy="128" rx="8" ry="5" fill="#8B6914"/>
+            <ellipse cx="314" cy="128" rx="8" ry="5" fill="#8B6914"/>
+          </g>
+
+          <!-- lion -->
+          <g class="float-a">
+            <circle cx="70" cy="118" r="28" fill="#E8A838"/>
+            <circle cx="70" cy="118" r="18" fill="#F2C15A"/>
+            <circle cx="63" cy="115" r="2.5" fill="#243028"/>
+            <circle cx="77" cy="115" r="2.5" fill="#243028"/>
+            <path d="M64 124 Q70 129 76 124" fill="none" stroke="#243028" stroke-width="2" stroke-linecap="round"/>
+            <ellipse cx="70" cy="120" rx="3" ry="2.2" fill="#c47a2a"/>
+            <text x="42" y="162" font-family="Baloo 2, sans-serif" font-size="11" fill="#5c3a18" font-weight="700">LET THE</text>
+            <text x="28" y="174" font-family="Baloo 2, sans-serif" font-size="11" fill="#5c3a18" font-weight="700">ADVENTURE BEGIN!</text>
+          </g>
+
+          <!-- zebra -->
+          <g class="float-b" transform="translate(0,8)">
+            <ellipse cx="130" cy="145" rx="16" ry="12" fill="#f5f0e6"/>
+            <rect x="118" y="133" width="5" height="22" fill="#243028" opacity="0.85"/>
+            <rect x="126" y="130" width="5" height="26" fill="#f5f0e6"/>
+            <rect x="134" y="133" width="5" height="22" fill="#243028" opacity="0.85"/>
+            <circle cx="146" cy="138" r="7" fill="#f5f0e6"/>
+            <circle cx="148" cy="136" r="1.5" fill="#243028"/>
+          </g>
+
+          <!-- elephant -->
+          <g class="float-a" style="animation-delay:0.6s">
+            <ellipse cx="220" cy="140" rx="22" ry="16" fill="#9aa7ad"/>
+            <circle cx="238" cy="128" r="12" fill="#9aa7ad"/>
+            <path d="M248 130 Q262 150 248 155" fill="none" stroke="#7d8a90" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="242" cy="126" r="2" fill="#243028"/>
+            <ellipse cx="210" cy="128" rx="5" ry="8" fill="#b0bbc0"/>
+            <ellipse cx="230" cy="128" rx="5" ry="8" fill="#b0bbc0"/>
+          </g>
+
+          <!-- giraffe -->
+          <g class="float-b">
+            <rect x="278" y="70" width="10" height="70" rx="5" fill="#E0A04A"/>
+            <circle cx="286" cy="62" r="12" fill="#E0A04A"/>
+            <circle cx="290" cy="60" r="2" fill="#243028"/>
+            <rect x="282" y="48" width="3" height="10" fill="#c47a2a"/>
+            <rect x="288" y="48" width="3" height="10" fill="#c47a2a"/>
+            <circle cx="283.5" cy="48" r="2.5" fill="#5c3a18"/>
+            <circle cx="289.5" cy="48" r="2.5" fill="#5c3a18"/>
+            <circle cx="281" cy="90" r="4" fill="#c47a2a"/>
+            <circle cx="286" cy="110" r="3.5" fill="#c47a2a"/>
+            <circle cx="280" cy="125" r="4" fill="#c47a2a"/>
+          </g>
+        </svg>
+      </div>
+
+      <ul class="details">
+        <li>
+          <span class="ico" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#2f6b3a" stroke-width="2"/><path d="M3 10h18M8 3v4M16 3v4" stroke="#2f6b3a" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <span>Sunday, August 16th</span>
+        </li>
+        <li>
+          <span class="ico" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#2f6b3a" stroke-width="2"/><path d="M12 7v6l4 2" stroke="#2f6b3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span>6:00 PM</span>
+        </li>
+        <li>
+          <span class="ico" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z" stroke="#2f6b3a" stroke-width="2"/><circle cx="12" cy="10" r="2.5" stroke="#2f6b3a" stroke-width="2"/></svg>
+          </span>
+          <span>
+            <a href="https://maps.google.com/?q=29715+Thistle+Ln,+New+Hudson,+MI+48165" target="_blank" rel="noopener">
+              29715 Thistle Ln, New Hudson, MI 48165
+            </a>
+          </span>
+        </li>
+      </ul>
+
+      <section class="rsvp" id="rsvp">
+        <h2>RSVP</h2>
+        <p>Please RSVP by August 14th. Let us know if you can join the adventure!</p>
+        <a class="cta" href="https://forms.gle/KUo29x73aF3Jy5Kw6" target="_blank" rel="noopener">
+          RSVP Now →
+        </a>
+        <div class="qr-block">
+          <img src="qr-rsvp.png" width="132" height="132" alt="QR code to RSVP form" />
+          <span>Scan to RSVP</span>
+        </div>
+      </section>
+
+      <p class="foot">We can’t wait to celebrate with you.</p>
+    </article>
+  </main>
+</body>
+</html>
