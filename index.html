@@ -7,148 +7,140 @@
   <meta name="description" content="Once upon a time in the jungle… join us for our little explorer’s 2nd birthday. Sunday, August 16th at 6:00 PM." />
   <meta property="og:title" content="Two Wild to Handle — Jungle Birthday" />
   <meta property="og:description" content="Sunday, August 16th · 6:00 PM · New Hudson, MI" />
-  <meta property="og:image" content="assets/jungle-storybook.jpg" />
+  <meta property="og:image" content="assets/jungle-storybook.jpg?v=8" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink: #2a2118;
-      --moss: #3d5c34;
-      --gold: #c4a35a;
-      --cream: #f7efd8;
+      --ink: #241c14;
+      --moss: #2f4f28;
+      --gold: #d2b56a;
+      --cream: #fff6df;
       --bark: #6b4226;
-      --bark-deep: #3e2614;
+      --bark-deep: #3a2412;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     html, body {
       min-height: 100%;
-      background: #1a2416;
+      background: #142014;
     }
 
-    body {
-      font-family: "Nunito", Georgia, sans-serif;
-      color: var(--ink);
-    }
+    body { color: var(--ink); }
 
-    /* One painted storybook page — full window */
+    /* Full painted jungle — animals visible all around */
     .page {
       position: relative;
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
-      padding: clamp(0.75rem, 3vw, 1.5rem);
-      background:
-        radial-gradient(ellipse 90% 70% at 50% 40%, transparent 30%, rgba(10, 18, 8, 0.45) 100%),
-        url("assets/jungle-storybook.jpg?v=7") center / cover no-repeat;
+      padding: 0 0.75rem 4.5vh;
+      background: url("assets/jungle-storybook.jpg?v=8") center / cover no-repeat;
       overflow: hidden;
     }
 
-    /* Soft storybook vignette + paper grain */
+    /* Soft dark rim so edges feel like a book page, not a card */
     .page::before {
       content: "";
       position: absolute;
       inset: 0;
       pointer-events: none;
+      z-index: 1;
       background:
-        radial-gradient(ellipse 70% 55% at 50% 48%, rgba(247, 239, 216, 0.12), transparent 65%),
-        linear-gradient(180deg, rgba(20, 35, 15, 0.2), transparent 18%, transparent 78%, rgba(15, 25, 10, 0.35));
-      z-index: 1;
+        radial-gradient(ellipse 95% 85% at 50% 45%, transparent 55%, rgba(8, 16, 8, 0.5) 100%),
+        linear-gradient(180deg, rgba(10, 20, 10, 0.18), transparent 22%, transparent 55%, rgba(10, 18, 8, 0.28) 100%);
     }
 
-    .page::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.12;
-      mix-blend-mode: soft-light;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      z-index: 1;
-    }
-
-    /* Text lives in the sunlit clearing */
+    /* Text sits in the sunlit rock clearing — soft glow, NO hard card */
     .tale {
       position: relative;
       z-index: 2;
-      width: min(100%, 360px);
+      width: min(100%, 340px);
       text-align: center;
-      padding: 1.35rem 1.2rem 1.4rem;
-      background:
-        linear-gradient(165deg, rgba(247, 239, 216, 0.82), rgba(236, 220, 180, 0.72));
-      border: 1px solid rgba(107, 66, 38, 0.28);
-      border-radius: 0.35rem;
-      box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.35) inset,
-        0 18px 40px rgba(20, 30, 10, 0.35);
-      backdrop-filter: blur(2px);
-      animation: open 1.1s cubic-bezier(0.22, 0.9, 0.25, 1) both;
+      padding: 1.5rem 1.1rem 1.2rem;
+      /* soft sunlit mist that fades into the painting */
+      background: radial-gradient(
+        ellipse 75% 70% at 50% 50%,
+        rgba(255, 244, 214, 0.55) 0%,
+        rgba(255, 240, 200, 0.28) 45%,
+        rgba(255, 240, 200, 0) 78%
+      );
+      -webkit-mask-image: radial-gradient(ellipse 78% 72% at 50% 50%, #000 35%, transparent 78%);
+      mask-image: radial-gradient(ellipse 78% 72% at 50% 50%, #000 35%, transparent 78%);
+      animation: settle 1.15s cubic-bezier(0.22, 0.9, 0.25, 1) both;
     }
 
     .chapter {
       font-family: "Cormorant Garamond", Georgia, serif;
       font-style: italic;
-      font-size: 0.95rem;
-      letter-spacing: 0.14em;
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--moss);
-      margin-bottom: 0.55rem;
+      text-shadow:
+        0 1px 0 rgba(255, 246, 223, 0.9),
+        0 0 12px rgba(255, 246, 223, 0.8);
+      margin-bottom: 0.4rem;
     }
 
     h1 {
       font-family: "Fraunces", Georgia, serif;
       font-weight: 700;
-      font-size: clamp(2.4rem, 10vw, 3rem);
+      font-size: clamp(2.35rem, 9.5vw, 2.95rem);
       line-height: 0.95;
       color: var(--bark-deep);
-      text-wrap: balance;
+      text-shadow:
+        0 1px 0 rgba(255, 246, 223, 0.95),
+        0 0 18px rgba(255, 246, 223, 0.85),
+        0 0 28px rgba(255, 240, 200, 0.55);
     }
     h1 em {
       display: block;
       font-style: italic;
       font-weight: 600;
       color: var(--moss);
-      font-size: 0.92em;
-      margin-top: 0.1rem;
+      font-size: 0.9em;
+      margin-top: 0.08rem;
     }
 
     .rule {
-      width: 4.5rem;
+      width: 3.8rem;
       height: 2px;
-      margin: 0.85rem auto;
+      margin: 0.7rem auto;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.9;
     }
 
     .lede {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.28rem;
-      line-height: 1.4;
-      color: #3a3228;
+      font-size: 1.18rem;
+      line-height: 1.35;
       font-weight: 600;
+      color: #2c241c;
+      text-shadow:
+        0 1px 0 rgba(255, 246, 223, 0.95),
+        0 0 14px rgba(255, 246, 223, 0.75);
     }
-    .lede strong {
-      color: var(--moss);
-      font-weight: 700;
-    }
+    .lede strong { color: var(--moss); font-weight: 700; }
 
     .facts {
       list-style: none;
-      margin: 1rem 0 1.15rem;
-      padding: 0.75rem 0.5rem;
-      border-top: 1px solid rgba(107, 66, 38, 0.2);
-      border-bottom: 1px solid rgba(107, 66, 38, 0.2);
-      text-align: center;
+      margin: 0.85rem 0 1rem;
+      padding: 0.55rem 0;
+      border-top: 1px solid rgba(90, 70, 40, 0.28);
+      border-bottom: 1px solid rgba(90, 70, 40, 0.28);
     }
     .facts li {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       font-weight: 600;
-      padding: 0.28rem 0;
+      padding: 0.22rem 0;
       color: var(--ink);
+      text-shadow: 0 1px 0 rgba(255, 246, 223, 0.9);
     }
     .facts a {
       color: var(--moss);
@@ -158,58 +150,57 @@
 
     .cta {
       display: inline-block;
-      margin-top: 0.15rem;
-      padding: 0.85rem 1.7rem;
+      padding: 0.8rem 1.55rem;
       font-family: "Fraunces", Georgia, serif;
       font-weight: 700;
-      font-size: 1.15rem;
-      letter-spacing: 0.03em;
+      font-size: 1.08rem;
+      letter-spacing: 0.02em;
       color: var(--cream);
       text-decoration: none;
-      background: linear-gradient(180deg, #8a5a32, var(--bark) 45%, var(--bark-deep));
+      background: linear-gradient(180deg, #8a5a32, var(--bark) 48%, var(--bark-deep));
       border-radius: 999px;
-      box-shadow: 0 4px 0 var(--bark-deep), 0 12px 24px rgba(40, 30, 15, 0.3);
+      border: 1px solid rgba(255, 230, 180, 0.2);
+      box-shadow:
+        0 3px 0 var(--bark-deep),
+        0 10px 22px rgba(20, 30, 10, 0.35);
       transition: transform 0.15s ease;
     }
     .cta:hover { transform: translateY(-2px); }
-    .cta:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--bark-deep); }
 
-    .footnote {
-      margin-top: 0.9rem;
+    .foot {
+      margin-top: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+    .foot img {
+      width: 72px;
+      height: 72px;
+      padding: 0.25rem;
+      background: rgba(255, 246, 223, 0.55);
+      border: 1px solid rgba(90, 70, 40, 0.22);
+      border-radius: 0.4rem;
+      box-shadow: 0 6px 14px rgba(20, 30, 10, 0.2);
+    }
+    .foot p {
       font-family: "Cormorant Garamond", Georgia, serif;
       font-style: italic;
-      font-size: 1.05rem;
-      color: #5a4e40;
+      font-size: 1rem;
+      color: #3a3228;
+      text-align: left;
+      line-height: 1.25;
+      text-shadow: 0 1px 0 rgba(255, 246, 223, 0.9);
     }
 
-    .qr {
-      margin-top: 0.85rem;
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.25rem;
-    }
-    .qr img {
-      width: 88px;
-      height: 88px;
-      padding: 0.3rem;
-      background: rgba(255,255,255,0.85);
-      border: 1px solid rgba(107, 66, 38, 0.25);
-      border-radius: 0.35rem;
-    }
-    .qr span {
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 0.95rem;
-      color: var(--moss);
-    }
-
-    @keyframes open {
-      from { opacity: 0; transform: translateY(14px) scale(0.97); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+    @keyframes settle {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (min-width: 700px) {
-      .tale { width: 400px; padding: 1.6rem 1.5rem 1.7rem; }
+      .page { padding-bottom: 7vh; }
+      .tale { width: 380px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -244,12 +235,10 @@
         RSVP to the adventure
       </a>
 
-      <div class="qr">
-        <img src="qr-rsvp.png?v=7" width="88" height="88" alt="QR code to RSVP" />
-        <span>Scan to RSVP</span>
+      <div class="foot">
+        <img src="qr-rsvp.png?v=8" width="72" height="72" alt="QR code to RSVP" />
+        <p>Scan to RSVP<br />Please reply by August 14th</p>
       </div>
-
-      <p class="footnote">Please reply by August 14th</p>
     </article>
   </main>
 </body>
