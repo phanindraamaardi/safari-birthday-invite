@@ -10,7 +10,7 @@
   <meta property="og:image" content="assets/jungle-storybook.jpg?v=9" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Pacifico&display=swap" rel="stylesheet" />
   <style>
     :root {
       --ink: #1f1812;
@@ -19,6 +19,8 @@
       --cream: #fff8e8;
       --bark: #6b4226;
       --bark-deep: #2f1c0e;
+      --two-green: #2f6b2a;
+      --wild-navy: #1a2744;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,7 +41,7 @@
       justify-content: center;
       padding: 1rem 0.85rem;
       /* keep giraffe head in frame */
-      background: url("assets/jungle-storybook.jpg?v=9") center 35% / cover no-repeat;
+      background: url("assets/jungle-storybook.jpg?v=10") center 35% / cover no-repeat;
       overflow: hidden;
     }
 
@@ -57,9 +59,9 @@
     .tale {
       position: relative;
       z-index: 2;
-      width: min(100%, 360px);
+      width: min(100%, 380px);
       text-align: center;
-      padding: 1.55rem 1.25rem 1.35rem;
+      padding: 1.35rem 1rem 1.35rem;
       background:
         radial-gradient(
           ellipse 80% 75% at 50% 50%,
@@ -81,32 +83,74 @@
       text-transform: uppercase;
       color: var(--moss);
       font-weight: 700;
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.35rem;
     }
 
-    h1 {
-      font-family: "Fraunces", Georgia, serif;
-      font-weight: 700;
-      font-size: clamp(2.4rem, 10vw, 3rem);
-      line-height: 0.95;
-      color: var(--bark-deep);
-      -webkit-text-stroke: 0.5px rgba(255, 248, 232, 0.35);
+    /* Big party title — matches the Two / Wild / plank look */
+    .headline {
+      margin: 0.15rem 0 0.35rem;
+      line-height: 0.9;
     }
-    h1 em {
+    .headline .two {
       display: block;
-      font-style: italic;
-      font-weight: 600;
-      color: var(--moss);
-      font-size: 0.9em;
-      margin-top: 0.08rem;
+      font-family: "Baloo 2", "Arial Black", sans-serif;
+      font-weight: 800;
+      font-size: clamp(3.4rem, 16vw, 4.6rem);
+      letter-spacing: 0.02em;
+      color: var(--two-green);
+      -webkit-text-stroke: 6px #fff;
+      paint-order: stroke fill;
+      text-shadow:
+        0 4px 0 #1e4a1c,
+        0 8px 14px rgba(30, 50, 20, 0.28);
+      transform: rotate(-2deg);
     }
-
-    .rule {
-      width: 4rem;
-      height: 2px;
-      margin: 0.75rem auto;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    .headline .wild {
+      display: block;
+      margin-top: -0.28em;
+      font-family: "Pacifico", cursive;
+      font-weight: 400;
+      font-size: clamp(3.5rem, 17vw, 4.8rem);
+      color: var(--wild-navy);
+      -webkit-text-stroke: 5px #fff;
+      paint-order: stroke fill;
+      text-shadow:
+        0 3px 0 rgba(20, 30, 50, 0.35),
+        0 8px 16px rgba(20, 30, 50, 0.22);
+      transform: rotate(-1deg);
     }
+    .headline .plank {
+      display: inline-block;
+      margin-top: 0.15rem;
+      padding: 0.38rem 1.25rem 0.48rem;
+      font-family: "Baloo 2", sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.25rem, 5.5vw, 1.55rem);
+      letter-spacing: 0.02em;
+      color: #3a2414;
+      background:
+        linear-gradient(180deg, #c8914f 0%, #a86d35 42%, #7a4a22 100%);
+      border-radius: 0.35rem;
+      box-shadow:
+        0 3px 0 #5a3214,
+        0 8px 16px rgba(60, 35, 15, 0.28),
+        inset 0 1px 0 rgba(255, 230, 180, 0.35);
+      transform: rotate(-2.5deg);
+      position: relative;
+    }
+    .headline .plank::before,
+    .headline .plank::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      background: #5a8f3c;
+      border-radius: 40% 60% 45% 55%;
+      transform: translateY(-50%);
+    }
+    .headline .plank::before { left: -6px; }
+    .headline .plank::after { right: -6px; }
 
     .lede {
       font-family: "Cormorant Garamond", Georgia, serif;
@@ -196,15 +240,15 @@
 <body>
   <main class="page">
     <article class="tale">
-      <p class="chapter">A birthday tale from the jungle</p>
-      <h1>
-        Two Wild
-        <em>to Handle</em>
+      <p class="chapter">A jungle birthday for Yash</p>
+      <h1 class="headline">
+        <span class="two">Two</span>
+        <span class="wild">Wild</span>
+        <span class="plank">to Handle</span>
       </h1>
-      <div class="rule" aria-hidden="true"></div>
       <p class="lede">
-        Once upon a time, deep in the jungle, we gathered to celebrate our little explorer’s
-        <strong>2nd birthday</strong>.
+        Once upon a time, deep in the jungle, we gathered to celebrate
+        <strong>Yash’s 2nd birthday</strong>.
       </p>
 
       <ul class="facts">
