@@ -213,6 +213,19 @@
       text-decoration-thickness: 2px;
       text-underline-offset: 3px;
     }
+    .facts .map-link {
+      display: inline-block;
+      font-size: clamp(1.05rem, 3.8vw, 1.18rem);
+    }
+    .facts .address {
+      display: block;
+      margin-top: 0.2rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #4a3f32;
+      line-height: 1.25;
+    }
 
     .cta {
       display: inline-block;
@@ -290,9 +303,10 @@
       <ul class="facts">
         <li>Sunday, August 16th · 6:00 PM</li>
         <li>
-          <a href="https://maps.google.com/?q=29715+Thistle+Ln,+New+Hudson,+MI+48165" target="_blank" rel="noopener">
-            29715 Thistle Ln, New Hudson, MI
+          <a class="map-link" href="https://maps.google.com/?q=29715+Thistle+Ln,+New+Hudson,+MI+48165" target="_blank" rel="noopener">
+            Open map to party location
           </a>
+          <span class="address">29715 Thistle Ln, New Hudson, MI 48165</span>
         </li>
       </ul>
 
@@ -301,8 +315,8 @@
       </a>
 
       <div class="foot">
-        <img src="qr-rsvp.png?v=11" width="84" height="84" alt="QR code to RSVP" />
-        <p>Scan to RSVP<br />Reply by August 14th</p>
+        <img src="qr-rsvp.png?v=12" width="84" height="84" alt="QR code to RSVP" />
+        <p>Scan to RSVP<br />RSVP by August 12th</p>
       </div>
     </article>
   </main>
