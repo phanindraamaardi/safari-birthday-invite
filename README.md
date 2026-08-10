@@ -1,7 +1,6 @@
-# Two Wild to Handle — Birthday Invite
+# Yash Birthday Invite
 
-Public safari-themed birthday invitation with RSVP.
+Public jungle-storybook birthday invitation for Yash.
 
-**Live page:** https://phanindraamaardi.github.io/safari-birthday-invite/
+**Share this link:** https://phanindraamaardi.github.io/yash-birthday-invite/
 
-RSVP goes to the Google Form linked from the page.
