@@ -2,3 +2,6 @@
 .DS_Store
 *.pyc
 __pycache__/
+assets/forest-bg.png
+assets/animals-natural.png
+animals-sheet.png
